@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  find_the_flag:
+    build:
+      context: find_the_flag
+    command:
+      - /bin/bash
+      - -c
+      - |
+          redis-server &
+          python3 /fastapi/app.py
+    ports:
+      - "30001:8080"
+    restart: always
+
+  i_am_not_a_robot:
+    build:
+      context: I_am_not_a_robot
+    command:  
+      - /bin/bash
+      - -c 
+      - |
+          python3 /fastapi/app.py
+    ports:
+      - "30002:8080"
+    restart: always
+    
+  message_board:
+    build:
+      context: message_board
+    command:  
+      - /bin/bash
+      - -c 
+      - |
+          python3 /fastapi/app.py
+    ports:
+      - "30003:8080"
+    restart: always
