@@ -77,6 +77,7 @@ def post(response: Response, workedOutCaptchaNumber: str=Cookie(None), ans: str=
   
   try:
     ans=str(eval(ans))
+    print(ans)
   except Exception as e:
     print("except:",e,'\n',ans)
     response.set_cookie('workedOutCaptchaNumber', '', max_age=0)
