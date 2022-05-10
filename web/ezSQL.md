@@ -27,6 +27,18 @@ SQL注入还是挺常用的, 来考一下。
 
 有的同学可能构造的是select * from accounts where username="`" or "1"="1`" and password="233"; ,由于or优先级低于and, 所以最后条件会这样执行: username="" or ("1"="1" and password="233"), 最后不会有数据返回。
 
+### 非预期解1
+
+看了一下大家的wp, 惊喜的发现有的同学用username,password这个账密打过去了。研究了一下发现是sqlite的奇特语法:
+
+![image](https://user-images.githubusercontent.com/72590023/167538613-1aaf200b-79be-4ea9-a821-f3392ae5bb79.png)
+
+也就是说双引号在字符串等于列名的情况下可以看做反引号(代表列名)。
+
+![image](https://user-images.githubusercontent.com/72590023/167538933-9e149a08-b161-43a9-ad70-c4a6907c062e.png)
+
+单引号就没这个问题了()
+
 ## 题外话
 
 留言板题也可以使用高级的sql注入来解。关键词: 布尔盲注。注意要用sqlite的注入语句, 这些语句可以在hackbar里找到。
