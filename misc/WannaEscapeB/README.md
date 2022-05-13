@@ -113,9 +113,46 @@ MHTML还有其他格式，如POST表单用的`multipart/form-data`，在此不�
 
 答案： `KOALI`/`KOALIMADEMEDOTHIS`/`KOALIMADEMEDOTHISIVEBEENABDUCTEDSENDHELP`
 
-*TODO*
+嗯，对，张三老谜语人了。
+
+题给文件解压缩之后只有一个特殊字符：` `，UTF-8编码`C2 A0`。这个是[一种特殊的空格](https://www.compart.com/en/unicode/U+00A0)，一般用于网页排版不允许换行的地方。题目明示勒索信里有蹊跷，重新打开勒索信，全文搜索这种空格，会发现只有三段包含这个特殊字符，这三段的换行还非常乱：
+
+```
+Please check the
+current price and buy
+some Dogecoins, then send the
+correct amount
+to the address specified below.
+```
+
+后面剩下的两端的换行虽然正常，但是在正文中间夹着`<i></i>`，每个标签都圈出了一个字母：
+
+```
+We strongly re<i>c</i>ommend you to not remove the software, and disable your anti-virus for a while, until you pay and the paym<i>e</i>nt gets processed.
+```
+
+> We strongly re*c*ommend you to not remove the software, and disable your anti-virus for a while, until you pay and the paym*e*nt gets processed.
+
+把所有圈出来的字母单独提出来，得到另一个提示：“spaces”，即“空格”。
+
+额，的确，早就看出来空格有问题了。这里就需要一点脑洞才能继续了。提示说的空格是指普通空格，如果在上面“错落有致”的段落里把所有空格标出来，可以发现每行的两种空格最多只有四个：
+
+```
+Please#check+the                #+
+current#price+and+buy           #++
+some+Dogecoins,+then+send+the   ++++
+correct+amount                  +
+to+the#address+specified+below. +#++
+```
+
+这些空格其实构成了摩尔斯电码（[这里有个交互式码表，挺有趣的](https://morsecode.world/international/morse2.html)），解码出来就能得到张三隐藏的信息：“KOALI MADE ME DO THIS, I'VE BEEN ABDUCTED, SEND HELP”。看来他是被绑架了，做这个勒索病毒也是被胁迫的。
+
+~~又在迫害koali阿姨，拖出去~~
 
 ## 花絮
 
-*TODO*
+1. 新生赛出题期间我[Puzzling SE](https://puzzling.stackexchange.com/)刷得有点上头……任务B2的灵感就来源于这上面[把电子邮件](https://puzzling.stackexchange.com/questions/30523/fwd-re-karen-is-missing)[玩出花来](https://puzzling.stackexchange.com/questions/36256/this-is-it-this-is-the-one-find-your-wife)的几个系列题目。任务A和任务B则纯粹是为了这点醋包了顿饺子。
+2. 从题目名称开始，整道题都满是张三最终遭遇的伏笔：“绑架勒索”、勒索病毒叫WannaEscape（“想逃”）、一个学期没见过人影、发的消息“被”撤回……
+3. 解答内鬼的问题，为什么选用`&nbsp;`作为特殊空格：Unicode定义了[一大堆](https://jkorpela.fi/chars/spaces.html)各种宽度的空格，但所有编辑器都正常显示而且宽度和标准空格一致的空格只有这一种。造成解题上的迷惑我深表歉意。~~（才怪，出题人怎么会好心道歉）~~
+4. 为什么koali阿姨出现得这么突兀？是因为原定计划在任务B2后面还有一道题：“任务B3：法外狂徒”（知道人被绑架了肯定要去救他对吧），而这道题的设计思路是koali提出来的。不过因为是道线下misc，现在疫情封校没法出也没法做，便只能搁置了。
 
