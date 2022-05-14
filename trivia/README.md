@@ -70,6 +70,18 @@
 
 更多奇怪flag和花絮敬请期待。~~战地记者不会只有我一位吧不会吧不会吧~~
 
+(然后我就去看了看错误flag们 ----战地后记者pyy)
+
+![image](https://user-images.githubusercontent.com/72590023/168423646-551979c6-e0df-470a-8ca3-9e099ce4129f.png)
+
+*比赛可能打的有一些昏天黑地, 不过往年也是这样的, 这很正常()*
+
+![image](https://user-images.githubusercontent.com/72590023/168423732-f6955103-f0fe-4fb6-af97-08fe5b136dbc.png)
+
+*确实, js看的头疼*
+
+(好耶, 那大概应该好像貌似不会漏什么奇妙的flag了)
+
 ### 问卷——最想暴打的出题人
 
 重头戏当然要放在最后啦。
