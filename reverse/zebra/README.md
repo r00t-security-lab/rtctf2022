@@ -2,7 +2,7 @@
 
 将zebra拖入ida种分析，就可以得到大致逻辑，
 
-![image-20220515232241312](C:\Users\11721\AppData\Roaming\Typora\typora-user-images\image-20220515232241312.png)
+![image-20220515232241312](./image-20220515232241312.png)
 
 首先==的优先度大于=，所以将表达式f[i]==1的结果赋值给t[cou]，即当f[i]为时，t[cou]为1，f[i]为0则t[cou]为0。
 
@@ -16,6 +16,6 @@
 
 还原出01串后，使用pil的函数putpixel()绘图即可（其他绘图函数亦可）。
 
-![image-20220515233332082](C:\Users\11721\AppData\Roaming\Typora\typora-user-images\image-20220515233332082.png)
+![image-20220515233332082](./image-20220515233332082.png)
 
-![image-20220515233401246](C:\Users\11721\AppData\Roaming\Typora\typora-user-images\image-20220515233401246.png)
+![image-20220515233401246](./image-20220515233401246.png)
